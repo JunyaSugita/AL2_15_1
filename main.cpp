@@ -35,14 +35,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// ゲームループで使う変数の宣言
 
 	//背景
-	Back back = {
-		100,		//r
-		1,		//isR
-		0,		//g
-		0,		//isG
-		0,		//b
-		0		//isB
-	};
 
 	//プレイヤー
 	Player player = {
