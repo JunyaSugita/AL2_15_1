@@ -1,5 +1,3 @@
-#include "global.h"
-#include "struct.h"
 #include "time.h"
 #include "BackScleen.h"
 

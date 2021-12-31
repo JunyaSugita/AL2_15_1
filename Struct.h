@@ -1,4 +1,5 @@
 #pragma once
+#include "Global.h"
 
 //プレイヤーの定義
 typedef struct {
