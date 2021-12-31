@@ -1,6 +1,7 @@
 #include "global.h"
 #include "struct.h"
 #include "time.h"
+#include "BackScleen.h"
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine,
 	_In_ int nCmdShow) {
@@ -35,14 +36,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// ゲームループで使う変数の宣言
 
 	//背景
-	Back back = {
-		100,		//r
-		1,		//isR
-		0,		//g
-		0,		//isG
-		0,		//b
-		0		//isB
-	};
+	BackScleen* backScleen = new BackScleen();
 
 	//プレイヤー
 	Player player = {
@@ -155,39 +149,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			0		//LEFT
 		};
 
-		//背景の色変更
-		if (back.isR == 1) {
-			back.r++;
-			if (back.r >= 300) {
-				back.isR = 0;
-				back.isG = 1;
-			}
-		}
-		else if (back.r > 0) {
-			back.r--;
-		}
-
-		if (back.isG == 1) {
-			back.g++;
-			if (back.g >= 300) {
-				back.isG = 0;
-				back.isB = 1;
-			}
-		}
-		else if (back.g > 0) {
-			back.g--;
-		}
-
-		if (back.isB == 1) {
-			back.b++;
-			if (back.b >= 300) {
-				back.isB = 0;
-				back.isR = 1;
-			}
-		}
-		else if (back.b > 0) {
-			back.b--;
-		}
+		//背景
+		backScleen->BackColor();
 
 		//重力の方向操作
 		if (keys[KEY_INPUT_W] == 1 || keys[KEY_INPUT_UP] == 1) {
@@ -444,9 +407,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		}
 
 		// 描画処理
-
-		//背景
-		DrawBox(0, 0, WIN_WIDTH, WIN_HEIGHT, GetColor(back.r / 2, back.g / 2, back.b / 2), true);
+		backScleen->ShowBackColor();
 
 		//イージング
 		for (int i = 0; i < OLD_CONST; i++) {
@@ -534,6 +495,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			break;
 		}
 	}
+	//デストラクタ
+	delete backScleen;
+
 	// Dxライブラリ終了処理
 	DxLib_End();
 

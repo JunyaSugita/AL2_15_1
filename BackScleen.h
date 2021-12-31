@@ -1,4 +1,5 @@
 #pragma once
+#include "Global.h"
 #include "Struct.h"
 
 class BackScleen{
@@ -10,7 +11,8 @@ public:
 	
 	//ƒƒ“ƒoŠÖ”
 public:
-	void BackColor(Back &back);
+	void BackColor();
+	void ShowBackColor();
 	//ƒƒ“ƒo•Ï”
 public:
 	Back back;
