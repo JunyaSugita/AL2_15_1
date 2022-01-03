@@ -14,6 +14,6 @@ public:
 	void ShowBackColor();
 	//ƒƒ“ƒo•Ï”
 public:
-	Back back;
+	BACK back;
 };
 

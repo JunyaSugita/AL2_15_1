@@ -5,19 +5,19 @@
 typedef struct {
 	int x;
 	int y;
-}Speed;
+}SPEED;
 
 typedef struct {
 	int x;
 	int y;
 	int r;
-	Speed speed;
-}Player;
+	SPEED speed;
+}PLAYER;
 
 typedef struct {
 	int x;
 	int y;
-}OldPlayer;
+}OLD_PLAYER;
 
 //当たり判定の定義
 typedef struct {
@@ -25,14 +25,14 @@ typedef struct {
 	int down;
 	int right;
 	int left;
-}IsHit;
+}ISHIT;
 
 typedef struct {
 	int up;
 	int down;
 	int right;
 	int left;
-}OldIsHit;
+}OLD_ISHIT;
 
 //円のパーティクル
 typedef struct {
@@ -41,7 +41,7 @@ typedef struct {
 	int r;
 	int isShow;
 	int hitCount;
-}Circle;
+}CIRCLE;
 
 //背景描画
 typedef struct {
@@ -51,7 +51,7 @@ typedef struct {
 	int isG;
 	int b;
 	int isB;
-}Back;
+}BACK;
 
 //パーティクル
 typedef struct {
@@ -62,4 +62,4 @@ typedef struct {
 	int isShow;
 	int time;
 	int color;
-}Par;
+}PAR;
