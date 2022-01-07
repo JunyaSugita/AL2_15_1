@@ -5,9 +5,9 @@ Scene::Scene() {
 	isSceneChange = 0;
 }
 
-Scene::~Scene(){}
+Scene::~Scene() {}
 
-void Scene::SceneChange(float &frame) {
+void Scene::SceneChange(float& frame) {
 	if (isSceneChange == 1) {
 		if (frame >= 50) {
 			scene = 1;
@@ -17,7 +17,7 @@ void Scene::SceneChange(float &frame) {
 			frame++;
 		}
 	}
-	else if(frame > 0){
+	else if (frame > 0) {
 		frame--;
 	}
 }

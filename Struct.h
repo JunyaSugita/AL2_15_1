@@ -69,3 +69,15 @@ typedef struct {
 	float x;
 	float y;
 }TITLEPOS;
+
+//ƒsƒAƒm
+typedef struct {
+	int c;
+	int d;
+	int e;
+	int f;
+	int g;
+	int a;
+	int b;
+	int cc;
+}PIANO;

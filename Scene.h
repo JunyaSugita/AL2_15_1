@@ -1,11 +1,13 @@
 #pragma once
-class Scene{
+#include "Struct.h"
+
+class Scene {
 public:
 	Scene();
 	~Scene();
-	
+
 public:
-	void SceneChange(float &frame);
+	void SceneChange(float& frame);
 
 public:
 	int scene;

@@ -12,7 +12,7 @@ After::After() {
 	drawB = 2;
 }
 
-After::~After(){}
+After::~After() {}
 
 void After::UpdatePlayer(PLAYER player) {
 	for (int i = OLD_CONST - 1; i > 0; i--) {
@@ -36,7 +36,7 @@ void After::UpdatePlayer(PLAYER player) {
 	}
 }
 
-void After::DrawEasing(PLAYER player,float easingNUM) {
+void After::DrawEasing(PLAYER player, float easingNUM) {
 	for (int i = 0; i < OLD_CONST; i++) {
 		SetDrawBlendMode(DX_BLENDMODE_ADD, 150 - (i * 5));
 		if (i % 3 == drawR) {

@@ -1,5 +1,6 @@
 #pragma once
 #include "Struct.h"
+#include "time.h"
 
 class Particle{
 public:
@@ -23,5 +24,7 @@ public:
 	ISHIT isHit;
 	OLD_ISHIT oldIsHit;
 	int isHitCount;
+
+	PIANO piano;
 };
 

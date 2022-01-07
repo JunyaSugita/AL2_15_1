@@ -1,5 +1,5 @@
 #pragma once
-class Info{
+class Info {
 public:
 	Info();
 	~Info();

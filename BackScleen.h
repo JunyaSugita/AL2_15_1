@@ -1,13 +1,13 @@
 #pragma once
 #include "Struct.h"
 
-class BackScleen{
+class BackScleen {
 public:
 	//コンストラクタ
 	BackScleen();
 	//デストラクタ
 	~BackScleen();
-	
+
 	//メンバ関数
 public:
 	void BackColor();

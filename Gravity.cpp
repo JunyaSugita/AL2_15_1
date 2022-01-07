@@ -4,7 +4,7 @@ Gravity::Gravity() {
 	gravityArrow = 0;
 }
 
-Gravity::~Gravity(){}
+Gravity::~Gravity() {}
 
 void Gravity::GravityOpe(char* keys) {
 	if (keys[KEY_INPUT_W] == 1 || keys[KEY_INPUT_UP] == 1) {

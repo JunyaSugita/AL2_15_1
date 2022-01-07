@@ -36,6 +36,29 @@ Particle::Particle() {
 		0		//LEFT
 	};
 	isHitCount = 0;
+
+	piano = {
+		LoadSoundMem("sound/pianoC.mp3"),
+		LoadSoundMem("sound/pianoD.mp3"),
+		LoadSoundMem("sound/pianoE.mp3"),
+		LoadSoundMem("sound/pianoF.mp3"),
+		LoadSoundMem("sound/pianoG.mp3"),
+		LoadSoundMem("sound/pianoA.mp3"),
+		LoadSoundMem("sound/pianoB.mp3"),
+		LoadSoundMem("sound/pianoC+.mp3")
+	};
+
+	ChangeVolumeSoundMem(30, piano.c);
+	ChangeVolumeSoundMem(30, piano.d);
+	ChangeVolumeSoundMem(30, piano.e);
+	ChangeVolumeSoundMem(30, piano.f);
+	ChangeVolumeSoundMem(30, piano.g);
+	ChangeVolumeSoundMem(30, piano.a);
+	ChangeVolumeSoundMem(30, piano.b);
+	ChangeVolumeSoundMem(30, piano.cc);
+
+	//óêêî
+	srand(time(NULL));
 }
 
 Particle::~Particle() {}
@@ -88,6 +111,32 @@ void Particle::HitParticle(PLAYER player) {
 				circle[i].y = player.y - player.r;
 				circle[i].isShow = 1;
 				circle[i].hitCount = isHitCount;
+				switch (rand() % 8) {
+					case 0:
+						PlaySoundMem(piano.c, DX_PLAYTYPE_BACK, true);
+						break;
+					case 1:
+						PlaySoundMem(piano.d, DX_PLAYTYPE_BACK, true);
+						break;
+					case 2:
+						PlaySoundMem(piano.e, DX_PLAYTYPE_BACK, true);
+						break;
+					case 3:
+						PlaySoundMem(piano.f, DX_PLAYTYPE_BACK, true);
+						break;
+					case 4:
+						PlaySoundMem(piano.g, DX_PLAYTYPE_BACK, true);
+						break;
+					case 5:
+						PlaySoundMem(piano.a, DX_PLAYTYPE_BACK, true);
+						break;
+					case 6:
+						PlaySoundMem(piano.b, DX_PLAYTYPE_BACK, true);
+						break;
+					case 7:
+						PlaySoundMem(piano.cc, DX_PLAYTYPE_BACK, true);
+						break;
+				}
 				break;
 			}
 		}
@@ -101,6 +150,32 @@ void Particle::HitParticle(PLAYER player) {
 				circle[i].y = player.y + player.r;
 				circle[i].isShow = 1;
 				circle[i].hitCount = isHitCount;
+				switch (rand() % 8) {
+					case 0:
+						PlaySoundMem(piano.c, DX_PLAYTYPE_BACK, true);
+						break;
+					case 1:
+						PlaySoundMem(piano.d, DX_PLAYTYPE_BACK, true);
+						break;
+					case 2:
+						PlaySoundMem(piano.e, DX_PLAYTYPE_BACK, true);
+						break;
+					case 3:
+						PlaySoundMem(piano.f, DX_PLAYTYPE_BACK, true);
+						break;
+					case 4:
+						PlaySoundMem(piano.g, DX_PLAYTYPE_BACK, true);
+						break;
+					case 5:
+						PlaySoundMem(piano.a, DX_PLAYTYPE_BACK, true);
+						break;
+					case 6:
+						PlaySoundMem(piano.b, DX_PLAYTYPE_BACK, true);
+						break;
+					case 7:
+						PlaySoundMem(piano.cc, DX_PLAYTYPE_BACK, true);
+						break;
+				}
 				break;
 			}
 		}
@@ -114,6 +189,32 @@ void Particle::HitParticle(PLAYER player) {
 				circle[i].y = player.y;
 				circle[i].isShow = 1;
 				circle[i].hitCount = isHitCount;
+				switch (rand() % 8) {
+					case 0:
+						PlaySoundMem(piano.c, DX_PLAYTYPE_BACK, true);
+						break;
+					case 1:
+						PlaySoundMem(piano.d, DX_PLAYTYPE_BACK, true);
+						break;
+					case 2:
+						PlaySoundMem(piano.e, DX_PLAYTYPE_BACK, true);
+						break;
+					case 3:
+						PlaySoundMem(piano.f, DX_PLAYTYPE_BACK, true);
+						break;
+					case 4:
+						PlaySoundMem(piano.g, DX_PLAYTYPE_BACK, true);
+						break;
+					case 5:
+						PlaySoundMem(piano.a, DX_PLAYTYPE_BACK, true);
+						break;
+					case 6:
+						PlaySoundMem(piano.b, DX_PLAYTYPE_BACK, true);
+						break;
+					case 7:
+						PlaySoundMem(piano.cc, DX_PLAYTYPE_BACK, true);
+						break;
+				}
 				break;
 			}
 		}
@@ -127,6 +228,32 @@ void Particle::HitParticle(PLAYER player) {
 				circle[i].y = player.y;
 				circle[i].isShow = 1;
 				circle[i].hitCount = isHitCount;
+				switch (rand() % 8) {
+					case 0:
+						PlaySoundMem(piano.c, DX_PLAYTYPE_BACK, true);
+						break;
+					case 1:
+						PlaySoundMem(piano.d, DX_PLAYTYPE_BACK, true);
+						break;
+					case 2:
+						PlaySoundMem(piano.e, DX_PLAYTYPE_BACK, true);
+						break;
+					case 3:
+						PlaySoundMem(piano.f, DX_PLAYTYPE_BACK, true);
+						break;
+					case 4:
+						PlaySoundMem(piano.g, DX_PLAYTYPE_BACK, true);
+						break;
+					case 5:
+						PlaySoundMem(piano.a, DX_PLAYTYPE_BACK, true);
+						break;
+					case 6:
+						PlaySoundMem(piano.b, DX_PLAYTYPE_BACK, true);
+						break;
+					case 7:
+						PlaySoundMem(piano.cc, DX_PLAYTYPE_BACK, true);
+						break;
+				}
 				break;
 			}
 		}

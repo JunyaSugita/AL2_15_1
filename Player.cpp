@@ -12,9 +12,9 @@ Player::Player() {
 	};
 }
 
-Player::~Player(){}
+Player::~Player() {}
 
-void Player::PlayerMove(int gravityArrow,ISHIT &isHit) {
+void Player::PlayerMove(int gravityArrow, ISHIT& isHit) {
 	switch (gravityArrow) {
 		case 1:
 			if (player.speed.x > 0) {

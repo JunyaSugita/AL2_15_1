@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="BackScleen.cpp" />
     <ClCompile Include="After.cpp" />
+    <ClCompile Include="Bgm.cpp" />
     <ClCompile Include="Easing.cpp" />
     <ClCompile Include="Info.cpp" />
     <ClCompile Include="Gravity.cpp" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="BackScleen.h" />
     <ClInclude Include="After.h" />
+    <ClInclude Include="Bgm.h" />
     <ClInclude Include="Easing.h" />
     <ClInclude Include="Info.h" />
     <ClInclude Include="Global.h" />

@@ -8,7 +8,7 @@ Reset::Reset() {
 
 Reset::~Reset() {}
 
-void Reset::ResetKey(char* keys,int& isSceneChange) {
+void Reset::ResetKey(char* keys, int& isSceneChange) {
 	if (keys[KEY_INPUT_R]) {
 		isSceneChange = 1;
 		isShowResetGraph = 1;

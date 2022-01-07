@@ -1,12 +1,12 @@
 #pragma once
-class Easing{
+class Easing {
 public:
 	Easing();
 	~Easing();
 
 public:
 	void easeOutSine();
-	 
+
 public:
 	float frame;
 	const int CONST_FRAME = 50;

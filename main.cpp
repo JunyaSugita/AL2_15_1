@@ -1,4 +1,3 @@
-#include "time.h"
 #include "BackScleen.h"
 #include "Player.h"
 #include "Particle.h"
@@ -9,6 +8,7 @@
 #include "Easing.h"
 #include "Info.h"
 #include "Reset.h"
+#include "Bgm.h"
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine,
 	_In_ int nCmdShow) {
@@ -43,8 +43,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	// ゲームループで使う変数の宣言
 	//シーン管理
 	Scene* scene = new Scene();
+
 	//背景
 	BackScleen* backScleen = new BackScleen();
+
+	//bgm
+	Bgm* bgm = new Bgm();
 
 	//タイトル
 	Title* title = new Title();
@@ -69,9 +73,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 	//その他
 	Info* info = new Info();
-
-	//乱数
-	srand(time(NULL));
 
 	// 最新のキーボード情報用
 	char keys[256] = { 0 };
@@ -105,6 +106,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		//シーン管理
 		scene->SceneChange(easing->frame);
+
+		//bgm
+		bgm->PlayBgm();
 
 		switch (scene->scene) {
 			case 0:

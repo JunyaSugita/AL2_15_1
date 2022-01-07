@@ -6,7 +6,7 @@ Easing::Easing() {
 	easingNum = 0.0f;
 }
 
-Easing::~Easing(){}
+Easing::~Easing() {}
 
 void Easing::easeOutSine() {
 	easingNum = sin(((frame / CONST_FRAME) * PI) / 2) * 1000;
