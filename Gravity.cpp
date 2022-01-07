@@ -7,6 +7,12 @@ Gravity::Gravity() {
 Gravity::~Gravity() {}
 
 void Gravity::GravityOpe(char* keys) {
+	//NULLチェック
+	if (keys == nullptr) {
+		printf("null\n");
+		return;
+	}
+
 	if (keys[KEY_INPUT_W] == 1 || keys[KEY_INPUT_UP] == 1) {
 		gravityArrow = 1;
 	}

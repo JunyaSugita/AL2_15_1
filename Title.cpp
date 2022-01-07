@@ -34,6 +34,11 @@ void Title::TitleMove() {
 }
 
 void Title::SceneTrans(char* keys, int& isSceneChange) {
+	//NULLチェック
+	if (keys == nullptr) {
+		printf("null\n");
+		return;
+	}
 	if (keys[KEY_INPUT_SPACE] == 1) {
 		isSceneChange = 1;
 	}

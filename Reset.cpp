@@ -9,6 +9,12 @@ Reset::Reset() {
 Reset::~Reset() {}
 
 void Reset::ResetKey(char* keys, int& isSceneChange) {
+	//NULLチェック
+	if (keys == nullptr) {
+		printf("null\n");
+		return;
+	}
+
 	if (keys[KEY_INPUT_R]) {
 		isSceneChange = 1;
 		isShowResetGraph = 1;
