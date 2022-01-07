@@ -82,7 +82,7 @@ void Player::PlayerMove(int gravityArrow,ISHIT &isHit) {
 	}
 }
 
-void Player::DrawPlayer() {
-	DrawBox(player.x - player.r, player.y - player.r, player.x + player.r, player.y + player.r, GetColor(255, 255, 255), true);
-	DrawBox(player.x - player.r, player.y - player.r, player.x + player.r, player.y + player.r, GetColor(255, 0, 0), false);
+void Player::DrawPlayer(float easingNum) {
+	DrawBox(player.x - player.r + easingNum, player.y - player.r, player.x + player.r + easingNum, player.y + player.r, GetColor(255, 255, 255), true);
+	DrawBox(player.x - player.r + easingNum, player.y - player.r, player.x + player.r + easingNum, player.y + player.r, GetColor(255, 0, 0), false);
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -128,20 +128,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BackScleen.cpp" />
+    <ClCompile Include="After.cpp" />
     <ClCompile Include="Easing.cpp" />
+    <ClCompile Include="Info.cpp" />
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Reset.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackScleen.h" />
+    <ClInclude Include="After.h" />
     <ClInclude Include="Easing.h" />
+    <ClInclude Include="Info.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Gravity.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Reset.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Struct.h" />
+    <ClInclude Include="Title.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

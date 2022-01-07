@@ -63,3 +63,9 @@ typedef struct {
 	int time;
 	int color;
 }PAR;
+
+//ƒ^ƒCƒgƒ‹
+typedef struct {
+	float x;
+	float y;
+}TITLEPOS;

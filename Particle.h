@@ -11,8 +11,8 @@ public:
 	void PlayerParticle(PLAYER player);
 	void HitParticle(PLAYER player);
 	void ResetHit();
-	void DrawPlayerParticle();
-	void DrawHitParticle();
+	void DrawPlayerParticle(float easingNum);
+	void DrawHitParticle(float easingNum);
 public:
 	const int CIRCLE_CONST = 100;
 	CIRCLE circle[100];

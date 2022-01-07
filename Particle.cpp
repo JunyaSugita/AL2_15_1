@@ -162,19 +162,19 @@ void Particle::ResetHit() {
 	};
 }
 
-void Particle::DrawPlayerParticle() {
+void Particle::DrawPlayerParticle(float easingNum) {
 	for (int i = 0; i < PAR_CONST; i++) {
 		if (par[i].isShow == 1) {
 			SetDrawBlendMode(DX_BLENDMODE_ADD, 200 - par[i].time * 2);
 			switch (par[i].color) {
 				case 0:
-					DrawCircle(par[i].x, par[i].y, 5, GetColor(255, 0, 0), true);
+					DrawCircle(par[i].x + easingNum, par[i].y, 5, GetColor(255, 0, 0), true);
 					break;
 				case 1:
-					DrawCircle(par[i].x, par[i].y, 5, GetColor(0, 255, 0), true);
+					DrawCircle(par[i].x + easingNum, par[i].y, 5, GetColor(0, 255, 0), true);
 					break;
 				case 2:
-					DrawCircle(par[i].x, par[i].y, 5, GetColor(0, 0, 255), true);
+					DrawCircle(par[i].x + easingNum, par[i].y, 5, GetColor(0, 0, 255), true);
 					break;
 			}
 			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
@@ -182,23 +182,23 @@ void Particle::DrawPlayerParticle() {
 	}
 }
 
-void Particle::DrawHitParticle() {
+void Particle::DrawHitParticle(float easingNum) {
 	for (int i = 0; i < CIRCLE_CONST; i++) {
 		if (circle[i].isShow == 1) {
 			SetDrawBlendMode(DX_BLENDMODE_ADD, 200);
 			if (circle[i].hitCount % 3 == 0) {
 				for (int j = 0; j < 10; j++) {
-					DrawCircle(circle[i].x, circle[i].y, circle[i].r - j, GetColor(255, 0, 0), false);
+					DrawCircle(circle[i].x + easingNum, circle[i].y, circle[i].r - j, GetColor(255, 0, 0), false);
 				}
 			}
 			else if (circle[i].hitCount % 3 == 1) {
 				for (int j = 0; j < 10; j++) {
-					DrawCircle(circle[i].x, circle[i].y, circle[i].r - j, GetColor(0, 255, 0), false);
+					DrawCircle(circle[i].x + easingNum, circle[i].y, circle[i].r - j, GetColor(0, 255, 0), false);
 				}
 			}
 			else if (circle[i].hitCount % 3 == 2) {
 				for (int j = 0; j < 10; j++) {
-					DrawCircle(circle[i].x, circle[i].y, circle[i].r - j, GetColor(0, 0, 255), false);
+					DrawCircle(circle[i].x + easingNum, circle[i].y, circle[i].r - j, GetColor(0, 0, 255), false);
 				}
 			}
 			SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);

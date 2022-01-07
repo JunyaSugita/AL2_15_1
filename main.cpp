@@ -3,7 +3,12 @@
 #include "Player.h"
 #include "Particle.h"
 #include "Gravity.h"
+#include "After.h"
+#include "Scene.h"
+#include "Title.h"
 #include "Easing.h"
+#include "Info.h"
+#include "Reset.h"
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine,
 	_In_ int nCmdShow) {
@@ -36,9 +41,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 
 	// ゲームループで使う変数の宣言
-
+	//シーン管理
+	Scene* scene = new Scene();
 	//背景
 	BackScleen* backScleen = new BackScleen();
+
+	//タイトル
+	Title* title = new Title();
 
 	//プレイヤー
 	Player* player = new Player();
@@ -46,11 +55,20 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	//gravity
 	Gravity* gravity = new Gravity();
 
+	//残像
+	After* after = new After();
+
+	//パーティクル
+	Particle* particle = new Particle();
+
 	//イージング
 	Easing* easing = new Easing();
 
-	//パーティクル
-	Particle* particle = new Particle;
+	//リセット
+	Reset* reset = new Reset();
+
+	//その他
+	Info* info = new Info();
 
 	//乱数
 	srand(time(NULL));
@@ -79,51 +97,79 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
 		// 更新処理
 
-		//当たり判定のリセット
-		particle->ResetHit();
-
 		//背景
 		backScleen->BackColor();
 
-		//重力の方向操作
-		gravity->GravityOpe(keys);
-
-		//リセット
-		if (keys[KEY_INPUT_R] == 1) {
-			
-		}
-
 		//イージング
-		easing->UpdatePlayer(player->player);
+		easing->easeOutSine();
 
-		//プレイヤーの移動
-		player->PlayerMove(gravity->gravityArrow,particle->isHit);
+		//シーン管理
+		scene->SceneChange(easing->frame);
 
-		//壁のパーティクル
-		particle->HitParticle(player->player);
+		switch (scene->scene) {
+			case 0:
+				title->TitleMove();
+				title->SceneTrans(keys, scene->isSceneChange);
+				break;
+			case 1:
+				//当たり判定のリセット
+				particle->ResetHit();
 
-		//パーティクル
-		particle->PlayerParticle(player->player);
+				//重力の方向操作
+				gravity->GravityOpe(keys);
 
+				//リセット
+				reset->ResetKey(keys, scene->isSceneChange);
+
+				if (easing->frame == 50) {
+					delete player;
+					player = new Player();
+					delete gravity;
+					gravity = new Gravity();
+					delete after;
+					after = new After();
+					delete particle;
+					particle = new Particle();
+				}
+
+				//イージング
+				after->UpdatePlayer(player->player);
+
+				//プレイヤーの移動
+				player->PlayerMove(gravity->gravityArrow, particle->isHit);
+
+				//壁のパーティクル
+				particle->HitParticle(player->player);
+
+				//パーティクル
+				particle->PlayerParticle(player->player);
+
+				break;
+		}
 		// 描画処理
+		//背景
 		backScleen->ShowBackColor();
 
-		//イージング
-		easing->DrawEasing(player->player);
-		//壁のパーティクル
-		particle->DrawHitParticle();
-
-		//パーティクル
-		particle->DrawPlayerParticle();
-		//プレイヤー
-		player->DrawPlayer();
-
-		//外枠
-		DrawBox(-50, -50, WIN_WIDTH + 50, 0, GetColor(255, 255, 255), true);
-		DrawBox(-50, -50, 0, WIN_HEIGHT + 50, GetColor(255, 255, 255), true);
-		DrawBox(-50, WIN_HEIGHT + 50, WIN_WIDTH + 50, WIN_HEIGHT, GetColor(255, 255, 255), true);
-		DrawBox(WIN_WIDTH + 50, -50, WIN_WIDTH, WIN_HEIGHT + 50, GetColor(255, 255, 255), true);
-
+		switch (scene->scene) {
+			case 0:
+				title->DrawTitle(easing->easingNum);
+				title->DrawPress(easing->easingNum);
+				break;
+			case 1:
+				//操作説明
+				info->DrawInfo(easing->easingNum);
+				//残像
+				after->DrawEasing(player->player, easing->easingNum);
+				//壁のパーティクル
+				particle->DrawHitParticle(easing->easingNum);
+				//パーティクル
+				particle->DrawPlayerParticle(easing->easingNum);
+				//プレイヤー
+				player->DrawPlayer(easing->easingNum);
+				//リセット
+				reset->ShowReset(easing->easingNum);
+				break;
+		}
 		//---------  ここまでにプログラムを記述  ---------//
 		// (ダブルバッファ)裏面
 		ScreenFlip();
@@ -142,11 +188,16 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		}
 	}
 	//デストラクタ
+	delete scene;
 	delete backScleen;
 	delete player;
 	delete gravity;
 	delete particle;
+	delete after;
+	delete title;
 	delete easing;
+	delete info;
+	delete reset;
 
 	// Dxライブラリ終了処理
 	DxLib_End();

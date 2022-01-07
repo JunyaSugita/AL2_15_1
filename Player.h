@@ -9,7 +9,7 @@ public:
 	//ƒƒ“ƒoŠÖ”
 public:
 	void PlayerMove(int gravityArrow,ISHIT &isHit);
-	void DrawPlayer();
+	void DrawPlayer(float easingNum);
 	//ƒƒ“ƒo•Ï”
 public:
 	PLAYER player;
